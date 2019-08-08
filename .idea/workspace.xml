@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4834cde6-4b63-469f-aefb-f5e3122cdc57" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csubu_flutter_app/.metadata" beforeDir="false" afterPath="$PROJECT_DIR$/csubu_flutter_app/.metadata" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/csubu_flutter_app/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/csubu_flutter_app/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csubu_flutter_app/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/csubu_flutter_app/pubspec.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/csubu_flutter_app/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/csubu_flutter_app/test/widget_test.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +36,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/csubu_flutter_app/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1173">
+            <state>
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -53,47 +50,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/csubu_flutter_app" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="951" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="cs-ubu-1144384-62-1-assignment-04-tanakrit1998" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs-ubu-1144384-62-1-assignment-04-tanakrit1998" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs-ubu-1144384-62-1-assignment-04-tanakrit1998" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs-ubu-1144384-62-1-assignment-04-tanakrit1998" type="462c0819:PsiDirectoryNode" />
-              <item name="csubu_flutter_app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs-ubu-1144384-62-1-assignment-04-tanakrit1998" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs-ubu-1144384-62-1-assignment-04-tanakrit1998" type="462c0819:PsiDirectoryNode" />
-              <item name="csubu_flutter_app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cs-ubu-1144384-62-1-assignment-04-tanakrit1998" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs-ubu-1144384-62-1-assignment-04-tanakrit1998" type="462c0819:PsiDirectoryNode" />
-              <item name="csubu_flutter_app" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
@@ -131,7 +97,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <frame x="761" y="0" width="782" height="831" extended-state="0" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.6907073" />
@@ -141,7 +107,6 @@
       <window_info id="Resources Explorer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Dart Analysis" weight="0.3323782" />
       <window_info anchor="bottom" id="Run" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" />
@@ -149,6 +114,7 @@
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" />
+      <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.3323782" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Flutter Inspector" order="2" />
@@ -175,7 +141,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/csubu_flutter_app/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1173">
+        <state>
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
