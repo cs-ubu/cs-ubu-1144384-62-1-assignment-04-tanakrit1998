@@ -52,7 +52,7 @@ class _AppHomePageState extends State<AppHomePage> {
   var _page = 0;
 
   _getStudents() async {
-    var url = 'http://cs.sci.ubu.ac.th:7512/topic-1/Bos_59110440170/_search?from=${_page*10}&size=10';
+    var url = 'http://cs.sci.ubu.ac.th:7512/topic-1/Bos_59110440170/_search?from=${_page*1}&size=1';
     const headers = { 'Content-Type': 'application/json; charset=utf-8' };
     const query = { 'query': { 'match_all': {} } };
     final response = await http.post(url, headers: headers, body: json.encode(query));
@@ -92,7 +92,7 @@ class _AppHomePageState extends State<AppHomePage> {
             title: Row(
                   children: <Widget>[
                     // Image.asset('assets/images/csubu-bw.png', width: 48, height: 48),
-                    CircleAvatar(backgroundImage: NetworkImage('https://www.khaosod.co.th/wp-content/uploads/2016/11/12814038_1146248642066257_6493959246420728711_n-1-696x462.jpg')),
+                    CircleAvatar(backgroundImage: NetworkImage(student["img"])),
 
                     Expanded(child: Text(student["name"]))
                   ]
