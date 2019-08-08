@@ -1,8 +1,9 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart' show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'dart:convert';
 
 void main() {
 
@@ -21,7 +22,8 @@ class CSUBUFlutterApp extends StatelessWidget {
     return MaterialApp(
       title: appTitle,
       theme: ThemeData(
-        primarySwatch: Colors.blue
+        primarySwatch: Colors.blue,
+        //fontFamily: 'Roboto'
       ),
       home: AppHomePage(title: appTitle),
     );
@@ -44,37 +46,71 @@ class _AppHomePageState extends State<AppHomePage> {
 
   int _counter = 0;
   var _courses = <dynamic>[ ];
+  // Future<dynamic> _students;
+  var _students = [];
+  var _loading = true;
+  var _page = 0;
 
-
-
-
-  Future<dynamic> getStudents()async{
-    final url = 'http://cs.sci.ubu.ac.th:7512/topic-1/student/_search';
-    final query = {
-      "query":{
-        "match_all": {}
-      }
-    };
-    final respones = await http.post(url, body:query);
-
-    final result = json.decode(respones.body);
-    print("---------Result-------");
-    print(result);
-    return result;
-
-
+  _getStudents() async {
+    var url = 'http://cs.sci.ubu.ac.th:7512/topic-1/Bos_59110440170/_search?from=${_page*10}&size=10';
+    const headers = { 'Content-Type': 'application/json; charset=utf-8' };
+    const query = { 'query': { 'match_all': {} } };
+    final response = await http.post(url, headers: headers, body: json.encode(query));
+    _students = [];
+    if (response.statusCode == 200) {
+      var result = jsonDecode(utf8.decode(response.bodyBytes))['result']['hits'];
+      result.forEach((item) {
+        if (item.containsKey('_source')) {
+          var source = item['_source'];
+          if (source.containsKey('name') && source.containsKey('address')) {
+            _students.add(item['_source']);
+          }
+        }
+      });
+    }
+    setState(() {
+      _page = (_page+1)%3;
+      _loading = false;
+    });
   }
 
   void _incrementCounter() {
-    getStudents();
-    setState(() {
-      _counter++;
-      _courses.add({
-        'title': 'Tanakrit Jarounsuk',
-        'instructor': 'avatar',
-        'description': 'นายธนกฤต เจริญสุข 59110440170 มีความสุขมาก'
-      });
-    });
+    setState(() { _loading = true; });
+    _getStudents();
+  }
+
+  Widget studentWidgets(BuildContext context) {
+    return ListView.separated(
+        itemCount: _students.length,
+        padding: const EdgeInsets.all(8.0),
+        separatorBuilder: (context, i) => const Divider(),
+        itemBuilder: (context, i) {
+          final student = _students[i];
+          var sum = 0;
+          student['address'].runes.forEach((c) { sum += c; });
+          return ListTile(
+            title: Row(
+                  children: <Widget>[
+                    // Image.asset('assets/images/csubu-bw.png', width: 48, height: 48),
+                    CircleAvatar(backgroundImage: NetworkImage('https://www.khaosod.co.th/wp-content/uploads/2016/11/12814038_1146248642066257_6493959246420728711_n-1-696x462.jpg')),
+
+                    Expanded(child: Text(student["name"]))
+                  ]
+                ),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Price: ${student["price"]}'),
+                Text('Address: ${student["address"]}')
+              ]
+             )
+          );
+        }
+      );
+  }
+
+  Widget loadingWidget(BuildContext context) {
+    return Column(children: <Widget>[Text('loading....'), CircularProgressIndicator(), Text('Click the button')]);
   }
 
   @override
@@ -84,29 +120,16 @@ class _AppHomePageState extends State<AppHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: ListView.separated(
-          itemCount: _courses.length,
-          padding: const EdgeInsets.all(8.0),
-          separatorBuilder: (context, i) => const Divider(),
-          itemBuilder: (context, i) {
-            final course = _courses[i];
-            return ListTile(
-              title: Row(
-                    children: <Widget>[
-                      Image.asset('assets/images/csubu-bw.png', width: 48, height: 48),
-                      Expanded(child: Text(course['title']))
-                    ]
-                  ),
-              subtitle: Text(course['description'])
-            );
-          }
-        ),
+        child: (_loading)? loadingWidget(context) : studentWidgets(context),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(height: 50.0,),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+        child: Text('$_page'), // Icon(Icons.add),
+      )
     );
   }
 }
