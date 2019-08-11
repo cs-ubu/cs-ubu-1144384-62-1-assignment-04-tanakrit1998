@@ -59,6 +59,7 @@ class _AppHomePageState extends State<AppHomePage> {
     _students = [];
     if (response.statusCode == 200) {
       var result = jsonDecode(utf8.decode(response.bodyBytes))['result']['hits'];
+
       result.forEach((item) {
         if (item.containsKey('_source')) {
           var source = item['_source'];
@@ -101,7 +102,23 @@ class _AppHomePageState extends State<AppHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text('Price: ${student["price"]}'),
-                Text('Address: ${student["address"]}')
+                Text('Address: ${student["address"]}'),
+              Row(
+                children: <Widget>[
+
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Text("Review"),
+                  Icon(Icons.star, color: Colors.amberAccent),
+                  Icon(Icons.star, color: Colors.amberAccent),
+                  Icon(Icons.star, color: Colors.amberAccent),
+                  Icon(Icons.star, color: Colors.amberAccent),
+                  Icon(Icons.star_half, color: Colors.amberAccent),
+                ],
+              )
+
               ]
              )
           );
